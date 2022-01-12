@@ -15,8 +15,7 @@ SELECT b.[driverId],
 	WHERE b.[driverId] = 1 AND 
 	b.[lap] BETWEEN 20 AND 71 AND 
 	c.[raceId] = 1018 AND 
-	a.[raceId] = 1018 AND 
-	c.[raceId] = 1018
+	a.[raceId] = 1018
 	ORDER BY b.[lap]; --Hamilton Autria 2019
 
 
@@ -37,8 +36,7 @@ SELECT b.[driverId],
 	WHERE b.[driverId] = 830 AND 
 	b.[lap] BETWEEN 20 AND 71 AND 
 	c.[raceId] = 1018 AND 
-	a.[raceId] = 1018 AND 
-	c.[raceId] = 1018
+	a.[raceId] = 1018
 	ORDER BY b.[lap]; --Verstappen Austria 2019
 
 SELECT b.[driverId],  
@@ -58,8 +56,7 @@ SELECT b.[driverId],
 	WHERE b.[driverId] = 844 AND 
 	b.[lap] BETWEEN 20 AND 71 AND 
 	c.[raceId] = 1018 AND 
-	a.[raceId] = 1018 AND 
-	c.[raceId] = 1018
+	a.[raceId] = 1018
 	ORDER BY b.[lap]; --Leclerc Austria 2019
 
 
