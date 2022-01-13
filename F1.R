@@ -100,7 +100,8 @@ ros_ham_forecast <- ros_ham_forecast +
 # championship_battle_2014 <- ggarrange(ros_ham_historical, ros_ham_forecast)
 
 #top 5 fastest laps 2019
-# x_axis <- gsub("Grand Prix","", fastest_lap_2019$name)
+
+x_axis <- gsub("Grand Prix","", fastest_lap_2019$name)
 
 top_5_fastest <- fastest_lap_2019 %>%
   group_by(time) %>% 
