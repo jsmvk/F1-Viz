@@ -9,15 +9,13 @@
 setwd("~/Srodowisko R/Projekt_F1")
 
 library(dplyr)
-library(lubridate)
 library(ggplot2)
 library(ggpubr)
 library(readr)
 library(forecast)
 library(tidyverse)
-library(ggfortify)
-library(datasets)
-library(scatterplot3d)
+#library(ggfortify)
+#library(scatterplot3d)
 library(plotly)
 # library(seasonal)
 
