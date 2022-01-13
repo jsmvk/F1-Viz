@@ -20,8 +20,8 @@ library(datasets)
 library(scatterplot3d)
 library(plotly)
 # library(seasonal)
-# 
-install.packages("plotly")
+
+# install.packages("plotly")
 
 #plots
 
@@ -35,7 +35,7 @@ comments <- c("broken front wing on lap 22", "tire compound change")
 
 pit_strategy <- mutate(pit_strategy, comment = comments)
 
-#czasy okrazenie wykres (Hamilton/Verstappen)
+#lap times plot (Hamilton/Verstappen Austria 2019)
 
 ver_ham_time <- ggplot() +
   geom_line(ver, mapping = aes(x = lap, y = time, color = "ver")) +
@@ -46,7 +46,7 @@ ver_ham_time <- ggplot() +
   labs(color = "drivers") +
   ggtitle("Verstappen/Hamilton laps on Austrian GP 2019")
 
-#przewidywanie pozycji w dalszej czesci sezonu (dwóch najbardziej odstajacych od stawki kierowców)
+#championship position forecast based on historical data (up to 9th round) in 2014 season
 
 points_2014 <- read_csv("points_2014.csv", 
                         col_names = c("points", "round", "driver", "name"))
@@ -54,7 +54,7 @@ points_2014 <- read_csv("points_2014.csv",
 ros_ham_points <- points_2014 %>% 
   filter(driver == c("Hamilton", "Rosberg"))
 
-#próba zrobienia time series forecast ale points nie sa sezonowe
+#tried to make time series forecast but points are not seasonal
 
 
 #ros_ham_points$points <- ros_ham_points[, "points"]
@@ -99,7 +99,7 @@ ros_ham_forecast <- ros_ham_forecast +
 
 # championship_battle_2014 <- ggarrange(ros_ham_historical, ros_ham_forecast)
 
-#najszybsze okrazenia 2019
+#top 5 fastest laps 2019
 # x_axis <- gsub("Grand Prix","", fastest_lap_2019$name)
 
 top_5_fastest <- fastest_lap_2019 %>%
@@ -121,10 +121,6 @@ fastest_laps_2019_plot <- ggplot(top_5_fastest, aes(x = name, y = time, fill = n
                                       "Verstappen")) +
           ggtitle(" Top 5 Fastest laps 2019 season") +
           theme(axis.title.x = element_blank())
-
-#statystyka
-
-nrow(points_2014)
 
  
 
