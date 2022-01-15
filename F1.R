@@ -122,5 +122,20 @@ fastest_laps_2019_plot <- ggplot(top_5_fastest, aes(x = name, y = time, fill = n
           theme(axis.title.x = element_blank())
 
  
+#hipothesis: there is corelation between number of dnf's and points in the final outcome
+# standings_2019 <- read_csv("Srodowisko R/standings_2019.csv",
+#                            colnames(standings_2019) <-  c("points", "surname", "year"))
 
 
+count_not_finished <- not_finished %>%
+                        group_by(surname) %>%
+                        summarize(count = n())
+
+list_surname <- as.list(count_not_finished$surname)
+
+standings_2019_not_finished <- standings_2019 %>%
+                      filter(standings_2019$surname %in% list_surname)
+
+cor_points_ret <- cor(count_not_finished$count, standings_2019_not_finished$points)
+
+#no corelation proved
