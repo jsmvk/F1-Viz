@@ -101,9 +101,7 @@ ros_ham_forecast <- ggplot(ros_ham_points, aes(x = round, y = points, color = dr
 
 ros_ham_forecast <- ros_ham_forecast + 
   ylim(80, 400) +
-  scale_x_continuous(breaks = c(3, 6, 9, 12, 15, 18)) 
-
-# championship_battle_2014 <- ggarrange(ros_ham_historical, ros_ham_forecast)
+  scale_x_continuous(breaks = c(3, 6, 9, 12, 15, 18))
 
 #top 5 fastest laps 2019
 
