@@ -21,11 +21,19 @@ library(plotly)
 
 # install.packages("plotly")
 
-#plots
+#ggplots
 
 ver_ham_time
 ros_ham_forecast
 fastest_laps_2019_plot 
+
+# plot_ly()
+
+ros_ham_historical <- ggplotly(ros_ham_historical)
+
+ros_ham_historical
+plot_lap_points_surname
+
 
 #######
 
@@ -66,14 +74,14 @@ ros_ham_points <- points_2014 %>%
 #   stlf(lambda = 0, h = 18) %>%
 #   autoplot()
 
-# ros_ham_historical <- ggplot(ros_ham_points, aes(x = round, y = points, color = driver)) +
-#     geom_line() +
-#     ylim(0, 200) +
-#     scale_x_continuous(breaks = c(1, 2, 3, 4, 5, 6, 7, 8, 9)) +
-#     ggtitle("First half of 2014 F1 Championship battle") +
-#     labs(color = "legend") +
-#     scale_color_manual(values = c("Hamilton" = "green", 
-#                                   "Rosberg" = "darkblue"))
+ros_ham_historical <- ggplot(ros_ham_points, aes(x = round, y = points, color = driver)) +
+     geom_line() +
+     ylim(0, 200) +
+     scale_x_continuous(breaks = c(1, 2, 3, 4, 5, 6, 7, 8, 9)) +
+     ggtitle("First half of 2014 F1 Championship battle") +
+     labs(color = "legend") +
+     scale_color_manual(values = c("Hamilton" = "green", 
+                                   "Rosberg" = "darkblue"))
 
 ros_ham_forecast <- ggplot(ros_ham_points, aes(x = round, y = points, color = driver)) +
         geom_line() +
@@ -139,3 +147,18 @@ standings_2019_not_finished <- standings_2019 %>%
 cor_points_ret <- cor(count_not_finished$count, standings_2019_not_finished$points)
 
 #no corelation proved
+
+# fastest drivers in every round 2014 visualised
+
+# lap_points_surname_2014$X1 <- gsub('"', "", lap_points_surname_2014$X1)
+
+lap_points_surname_2014 <- lap_points_surname_2014 %>% 
+                                replace(.=="NULL","Vettel")
+
+plot_lap_points_surname <- plot_ly(lap_points_surname_2014, 
+                                 x = ~round, 
+                                 z = ~surname, 
+                                 y = ~fastest_lap,
+        type =  "scatter3d",
+        mode = "markers", 
+        color = lap_points_surname_2014$surname)
