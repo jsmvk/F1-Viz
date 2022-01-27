@@ -20,21 +20,6 @@ library(plotly)
 # library(seasonal)
 
 # install.packages("plotly")
-
-#ggplots
-
-ver_ham_time
-ros_ham_forecast
-fastest_laps_2019_plot 
-
-# plot_ly()
-
-ros_ham_historical <- ggplotly(ros_ham_historical)
-
-ros_ham_historical
-plot_lap_points_surname
-
-
 #######
 
 comments <- c("broken front wing on lap 22", "tire compound change")
@@ -160,3 +145,16 @@ plot_lap_points_surname <- plot_ly(lap_points_surname_2014,
         type =  "scatter3d",
         mode = "markers", 
         color = lap_points_surname_2014$surname)
+
+#ggplots
+
+ver_ham_time
+ros_ham_forecast
+fastest_laps_2019_plot 
+
+# plot_ly()
+
+ros_ham_historical <- ggplotly(ros_ham_historical)
+
+ros_ham_historical
+plot_lap_points_surname
