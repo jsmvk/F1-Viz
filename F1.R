@@ -127,9 +127,11 @@ list_surname <- as.list(count_not_finished$surname)
 standings_2019_not_finished <- standings_2019 %>%
                       filter(standings_2019$surname %in% list_surname)
 
-#cor_points_ret <- as.data.frame(cor_points_ret)
+cor_points_ret <- cor(count_not_finished$count, standings_2019_not_finished$points)
 
-#dnf <- merge(count_not_finished, standings_2019_not_finished, by = 'surname', all.x = TRUE)
+cor_points_ret <- as.data.frame(cor_points_ret)
+
+dnf <- merge(count_not_finished, standings_2019_not_finished, by = 'surname', all.x = TRUE)
 
 cor_points_ret <- merge(dnf, cor_points_ret, by = NULL)
 
@@ -140,8 +142,6 @@ cor_points_ret_plot <- ggplot(cor_points_ret, aes(x = count, y = points)) +
               se = FALSE) +
   ylim(0, 330) +
   xlim(0, 7)
-
-cor(cor_points_ret$count, cor_points_ret$points)
 
 #there is negative correlation between number of dnf's and points in the final outcome
 
