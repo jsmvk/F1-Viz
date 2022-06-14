@@ -45,20 +45,6 @@ points_2014 <- read_csv("points_2014.csv",
 ros_ham_points <- points_2014 %>% 
   filter(driver == c("Hamilton", "Rosberg"))
 
-#tried to make time series forecast but points are not seasonal
-
-
-#ros_ham_points$points <- ros_ham_points[, "points"]
-
-# ros_ham_points$points %>% #must be a vector
-#   ts(., start=0, end=165, frequency=10)
-# 
-# seas(ros_ham_points$points)
-# 
-# ros_ham_points$points %>%
-#   stlf(lambda = 0, h = 18) %>%
-#   autoplot()
-
 ros_ham_historical <- ggplot(ros_ham_points, aes(x = round, y = points, color = driver)) +
      geom_line() +
      ylim(0, 200) +
