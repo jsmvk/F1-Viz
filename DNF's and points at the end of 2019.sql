@@ -14,7 +14,7 @@ SELECT [surname], [status], [position], [name], b.[year]
 	AND ([status] != 'Finished' 
 	AND [status] NOT LIKE '+%'
 	AND [position] = '\N')
-	ORDER BY [surname] --drivers that didn't finish races 2019
+	ORDER BY [surname]; --drivers that didn't finish races 2019
 
 SELECT [points], [surname], [year]
 	FROM [dbo].[driver_standings] AS a
