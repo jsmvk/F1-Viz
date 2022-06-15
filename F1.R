@@ -1,9 +1,6 @@
 # colnames(pit_strategy) <- c("driverId", "stop", "lap", "duration")
-# 
 # colnames(ham) <- c("driverId", "lap", "position", "time", "name", "year", "surname")
-# 
 # colnames(ver) <- c("driverId", "lap", "position", "time", "name", "year", "surname")
-# 
 # colnames(fastest_lap_2019) <- c("time","name", "year")
 
 setwd("~/Srodowisko R/Projekt_F1")
@@ -14,13 +11,9 @@ library(ggpubr)
 library(readr)
 library(forecast)
 library(tidyverse)
-#library(ggfortify)
-#library(scatterplot3d)
 library(plotly)
-# library(seasonal)
 
 # install.packages("plotly")
-#######
 
 comments <- c("broken front wing on lap 22", "tire compound change")
 
@@ -99,7 +92,8 @@ fastest_laps_2019_plot <- ggplot(top_5_fastest, aes(x = name, y = time, fill = n
           theme(axis.title.x = element_blank())
 
  
-#hipothesis: there is corelation between number of dnf's and points in the final outcome
+#hipothesis: there is negative corelation between number of dnf's and points in the final outcome
+
 # standings_2019 <- read_csv("Srodowisko R/standings_2019.csv",
 #                            colnames(standings_2019) <-  c("points", "surname", "year"))
 
@@ -129,7 +123,9 @@ cor_points_ret_plot <- ggplot(cor_points_ret, aes(x = count, y = points)) +
   ylim(0, 330) +
   xlim(0, 7)
 
-#there is negative correlation between number of dnf's and points in the final outcome
+# there is negative correlation between number of dnf's and points in the final outcome
+# higher number of dnf's means less points at the end of the season
+# obviously, drivers and teams can't allow for dnf's to happen cause it'll be used as an advantage by other teams scoring more points
 
 # fastest drivers in every round 2014 visualised
 
@@ -138,13 +134,19 @@ cor_points_ret_plot <- ggplot(cor_points_ret, aes(x = count, y = points)) +
 lap_points_surname_2014 <- lap_points_surname_2014 %>% 
                                 replace(.=="NULL","Vettel")
 
-plot_lap_points_surname <- plot_ly(lap_points_surname_2014, 
+plot_lap_points_surname_3D <- plot_ly(lap_points_surname_2014, 
                                  x = ~round, 
                                  z = ~surname, 
                                  y = ~fastest_lap,
         type =  "scatter3d",
         mode = "markers", 
         color = lap_points_surname_2014$surname)
+
+plot_lap_points_surname <- ggplot(lap_points_surname_2014, aes(x = round, y = fastest_lap, color = surname)) +
+  geom_point() +
+  ggtitle("Fastest laps 2014")
+
+plot_lap_points_surname <- ggplotly(plot_lap_points_surname)
 
 #ggplots
 
@@ -159,3 +161,4 @@ ros_ham_historical <- ggplotly(ros_ham_historical)
 
 ros_ham_historical
 plot_lap_points_surname
+plot_lap_points_surname_3D
