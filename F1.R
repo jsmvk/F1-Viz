@@ -123,9 +123,10 @@ cor_points_ret_plot <- ggplot(cor_points_ret, aes(x = count, y = points)) +
   ylim(0, 330) +
   xlim(0, 7)
 
-# there is negative correlation between number of dnf's and points in the final outcome
-# higher number of dnf's means less points at the end of the season
-# obviously, drivers and teams can't allow for dnf's to happen cause it'll be used as an advantage by other teams scoring more points
+cor.test(cor_points_ret$count, cor_points_ret$points)
+
+# there is low statisticly unsignificant negative correlation between number of dnf's and points in the final outcome
+# higher number of dnf's means slightly less points at the end of the season
 
 # fastest drivers in every round 2014 visualised
 
