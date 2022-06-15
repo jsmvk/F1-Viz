@@ -62,7 +62,7 @@ SELECT b.[driverId],
 
 SELECT [driverId], [stop], [lap], [duration]--, [time]
 	FROM [dbo].[pit_stops]
-	WHERE [raceId] = 1018 AND ([driverId] = 830 OR [driverId] = 1) --pit strategy
+	WHERE [raceId] = 1018 AND ([driverId] = 830 OR [driverId] = 1); --pit strategy
 
 --exec sp_help races
 
@@ -71,11 +71,11 @@ SELECT [lap], COUNT([lap]) AS duplicates
 	WHERE [raceId] = 1018 AND 
 	[driverId] = 1 
 	GROUP BY [lap]
-	HAVING COUNT([lap]) > 1 --verify for lap duplicates //hamilton
+	HAVING COUNT([lap]) > 1; --verify for lap duplicates //hamilton
 
 SELECT *
 	FROM [dbo].[drivers]
-	WHERE [surname] = 'Leclerc' --Charles Leclerc
+	WHERE [surname] = 'Leclerc'; --Charles Leclerc
 	
 
 
