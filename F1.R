@@ -92,7 +92,8 @@ fastest_laps_2019_plot <- ggplot(top_5_fastest, aes(x = name, y = time, fill = n
           theme(axis.title.x = element_blank())
 
  
-#hipothesis: there is negative corelation between number of dnf's and points in the final outcome
+# H0: no significant relationship between number of dnf's and points in the final outcome
+# H1: there is significant relationship between number of dnf's and points in the final outcome
 
 # standings_2019 <- read_csv("Srodowisko R/standings_2019.csv",
 #                            colnames(standings_2019) <-  c("points", "surname", "year"))
@@ -125,7 +126,10 @@ cor_points_ret_plot <- ggplot(cor_points_ret, aes(x = count, y = points)) +
 
 cor.test(cor_points_ret$count, cor_points_ret$points)
 
-# there is low statisticly unsignificant negative correlation between number of dnf's and points in the final outcome
+# p-value = 0.3449
+# p-value > 0.05
+# H0 is accepted
+
 # higher number of dnf's means slightly less points at the end of the season
 
 # fastest drivers in every round 2014 visualised
