@@ -124,7 +124,8 @@ cor_points_ret_plot <- ggplot(cor_points_ret, aes(x = count, y = points)) +
   ylim(0, 330) +
   xlim(0, 7)
 
-cor.test(cor_points_ret$count, cor_points_ret$points)
+cor.test(cor_points_ret$count, cor_points_ret$points, alternative = "two.sided",
+method = "pearson", conf.level = 0.95)
 
 # p-value = 0.3449
 # p-value > 0.05
