@@ -93,7 +93,7 @@ fastest_laps_2019_plot <- ggplot(top_5_fastest, aes(x = name, y = time, fill = n
 
  
 # H0: p = 0
-# H1: p > 0
+# H1: p != 0
 
 # standings_2019 <- read_csv("Srodowisko R/standings_2019.csv",
 #                            colnames(standings_2019) <-  c("points", "surname", "year"))
